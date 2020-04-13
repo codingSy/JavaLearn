@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 描述类的功能.
+ * 求交集.
  *
  * @author 1129798381@qq.com
  */

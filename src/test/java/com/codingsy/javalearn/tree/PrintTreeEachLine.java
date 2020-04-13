@@ -21,13 +21,13 @@ import java.util.List;
  */
 public class PrintTreeEachLine {
     public static void main(String[] args) {
-        Tree tree4 = new Tree(4, null, null);
-        Tree tree5 = new Tree(5, null, null);
-        Tree tree6 = new Tree(6, null, null);
-        Tree tree7 = new Tree(7, null, null);
-        Tree tree2 = new Tree(2, tree4, tree5);
-        Tree tree3 = new Tree(3, tree6, tree7);
-        Tree tree1 = new Tree(1, tree2, tree3);
+        TreeNode tree4 = new TreeNode(4, null, null);
+        TreeNode tree5 = new TreeNode(5, null, null);
+        TreeNode tree6 = new TreeNode(6, null, null);
+        TreeNode tree7 = new TreeNode(7, null, null);
+        TreeNode tree2 = new TreeNode(2, tree4, tree5);
+        TreeNode tree3 = new TreeNode(3, tree6, tree7);
+        TreeNode tree1 = new TreeNode(1, tree2, tree3);
 
         List<List<Integer>> list = new ArrayList();
         getNodeList(tree1, 1, list);
@@ -39,7 +39,7 @@ public class PrintTreeEachLine {
         }
     }
 
-    public static void getNodeList(Tree tree, int depth, List<List<Integer>> list) {
+    public static void getNodeList(TreeNode tree, int depth, List<List<Integer>> list) {
         if (tree == null) {
             return;
         }
@@ -48,21 +48,10 @@ public class PrintTreeEachLine {
             list.add(new ArrayList<>());
         }
         // 把每一行数据加到list里
-        list.get(depth - 1).add(tree.node);
+        list.get(depth - 1).add(tree.val);
 
         getNodeList(tree.left, depth + 1, list);
         getNodeList(tree.right, depth + 1, list);
     }
 
-    static class Tree {
-        private int node;
-        private Tree left;
-        private Tree right;
-
-        Tree(int node, Tree left, Tree right) {
-            this.left = left;
-            this.right = right;
-            this.node = node;
-        }
-    }
 }

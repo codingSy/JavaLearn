@@ -23,7 +23,6 @@ public class ReverseNode {
         System.out.println("链表翻转前:" + node1.toString());
         Node reverseNode = reverseNode(node1);
         System.out.println("链表翻转后:" + reverseNode.toString());
-
     }
 
     public static class Node {
@@ -51,9 +50,8 @@ public class ReverseNode {
     // 1<-2<-3<-4<-5
     public static Node reverseNode(Node node) {
         Node pre = null;
-        Node next;
         while (node != null) {
-            next = node.next;
+            Node next = node.next;
             node.next = pre;
             pre = node;
             node = next;

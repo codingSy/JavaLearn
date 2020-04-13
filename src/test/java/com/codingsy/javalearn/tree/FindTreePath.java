@@ -4,6 +4,24 @@ import java.util.ArrayList;
 
 /**
  * 查找二叉树中和为某一值的路径
+ *               5
+ *              / \
+ *             4   8
+ *            /   / \
+ *           11  13  4
+ *          /  \    / \
+ *         7    2  5   1
+ *
+ * 返回:
+ *
+ * [
+ *    [5,4,11,2],
+ *    [5,8,4,5]
+ * ]
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。v
  * 思路：
  * 首先，采用一种“减法”思想，当检查一棵树从根到叶子节点形成的路径的和是否为target时，
  * 先将当前根节点的值 root.val 加入path, 然后检查它的左子树（若非空），
@@ -21,45 +39,41 @@ public class FindTreePath {
 
 
     public static void main(String[] args) {
-        TreeNode node4 = new TreeNode(4, null, null);
-        TreeNode node5 = new TreeNode(5, null, null);
-        TreeNode node6 = new TreeNode(6, null, null);
-        TreeNode node7 = new TreeNode(7, null, null);
-        TreeNode node2 = new TreeNode(2, node4, node5);
-        TreeNode node3 = new TreeNode(3, node6, node7);
-        TreeNode node1 = new TreeNode(1, node2, node3);
 
-        ArrayList<ArrayList<Integer>> arrayLists = FindPath(node1, 8);
+        TreeNode node7 = new TreeNode(7, null, null);
+        TreeNode node8 = new TreeNode(2, null, null);
+        TreeNode node9 = new TreeNode(5, null, null);
+        TreeNode node10 = new TreeNode(1, null, null);
+
+        TreeNode node4 = new TreeNode(11, node7, node8);
+        TreeNode node5 = new TreeNode(13, null, null);
+        TreeNode node6 = new TreeNode(4, node9, node10);
+
+        TreeNode node2 = new TreeNode(4, node4, null);
+        TreeNode node3 = new TreeNode(8, node5, node6);
+        TreeNode node1 = new TreeNode(5, node2, node3);
+
+        ArrayList<ArrayList<Integer>> arrayLists = FindPath(node1, 22);
         System.out.println(arrayLists);
 
     }
 
 
-    public static ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
+    public static ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int sum) {
         if (root == null) {
             return res;
         }
         path.add(root.val);
-        target -= root.val;
-        if (target == 0 && root.left == null && root.right == null) {
+        sum -= root.val;
+        if (sum == 0 && root.left == null && root.right == null) {
             res.add(new ArrayList(path));
+            path.remove(path.size() - 1);
+            return res;
         }
-        FindPath(root.left, target);
-        FindPath(root.right, target);
+        FindPath(root.left, sum);
+        FindPath(root.right, sum);
         path.remove(path.size() - 1);
         return res;
     }
 
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-
-        }
-    }
 }
