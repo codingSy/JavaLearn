@@ -6,6 +6,11 @@
 
 package com.codingsy.javalearn.thread;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * 同步静态方法锁的对象是类.
  * 同步非静态方法锁的是实例对象.
@@ -14,7 +19,7 @@ package com.codingsy.javalearn.thread;
  * @author 1129798381@qq.com
  */
 public class SyncRunTest {
-
+    ExecutorService executor =  Executors.newFixedThreadPool(1);
     public static void main(String[] args) {
         Thread staticStartA = new Thread(() -> {
             staticStartA();
