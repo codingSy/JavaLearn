@@ -14,6 +14,6 @@ package com.codingsy.javalearn;
 public class SimpleTest {
 
     public static void main(String[] args) {
-        System.out.println(2004151741164449140L % 64);
+        System.out.println(404 % 64);
     }
 }

@@ -105,7 +105,7 @@ public class LRUCache1 {
         return res;
     }
 
-    class DLinkedNode {
+    public class DLinkedNode {
         String key;
         int value;
         DLinkedNode pre;

@@ -18,7 +18,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @SpringBootTest(classes = BaseTest.class)
 @RunWith(SpringJUnit4ClassRunner.class)
-//@TestPropertySource("classpath:mryx-common-config.properties")
 @ComponentScan({"com.codingsy.javalearn"})
 public class BaseTest {
 

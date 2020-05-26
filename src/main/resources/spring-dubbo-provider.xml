@@ -14,5 +14,5 @@
     <dubbo:registry protocol="zookeeper" client="zkclient" address="localhost" register="false"/>
     <dubbo:protocol name="javalearn" port="20882"/>
 
-    <!--<dubbo:service interface="com.mryx.pay.third.gateway.api.facade.IThirdPayFacade" ref="thirdPayFacade" version="1.0" retries="0"/>-->
+    <!--<dubbo:service interface="com.pay.third.gateway.api.facade.IThirdPayFacade" ref="thirdPayFacade" version="1.0" retries="0"/>-->
 </beans>

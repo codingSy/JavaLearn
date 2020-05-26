@@ -22,6 +22,6 @@
 
     <dubbo:consumer timeout="1500" check="false" retries="0"/>
 
-    <dubbo:reference interface="com.mryx.pay.third.gateway.api.facade.IThirdPayFacade" id="thirdPayFacade"
-                     retries="0" version="1.0" url="localhost:30991"/>
+    <!--<dubbo:reference interface="com.pay.third.gateway.api.facade.IThirdPayFacade" id="thirdPayFacade"-->
+                     <!--retries="0" version="1.0" url="localhost:30991"/>-->
 </beans>
